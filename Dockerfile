@@ -13,6 +13,8 @@ WORKDIR /app
 # TODO(step-4b): copy package.json and package-lock.json, then install deps.
 COPY app/package.json app/package-lock.json ./
 RUN npm ci --omit=dev
+# lockfile pins proxy-addr 2.0.7 (CRITICAL CVE); express allows ~2.0.7, so bump within range
+RUN npm update proxy-addr
 
 # TODO(step-4c): copy the rest of the app source into /app.
 COPY /app ./
@@ -25,6 +27,9 @@ COPY /app ./
 FROM node:20.11-slim
 
 WORKDIR /app
+# patch OS CVEs in the old base image; remove npm (bundles a vulnerable tar, unused at runtime)
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/* \
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 
 # TODO(step-4e): copy the fully-installed app from the builder stage.
 COPY --from=builder /app /app
