@@ -20,7 +20,7 @@ Tick each box as you complete it. The workshop is **done** when all 10 are ticke
 - [x] **AC-03:** `.dockerignore` excludes at least `node_modules`, `.git`, and `.env`.
 - [x] **AC-04:** Dockerfile contains a `HEALTHCHECK` instruction.
 - [x] **AC-05:** `docker compose up -d` brings up two healthy containers within 60 seconds.
-- [ ] **AC-06:** `web` waits for `db` health (`docker compose config` shows `condition: service_healthy`).
+- [x] **AC-06:** `web` waits for `db` health (`docker compose config` shows `condition: service_healthy`).
 - [ ] **AC-07:** `.github/workflows/ci.yml` triggers on`push` to `main`.
 - [ ] **AC-08:** The CI step `scan` uses `aquasecurity/trivy-action` with `severity: CRITICAL` and `exit-code: '1'`, and reports **0 CRITICAL** findings.
 - [ ] **AC-09:** The CI step `push` pushes two tags: `:latest` and `:${{ github.sha }}`.
