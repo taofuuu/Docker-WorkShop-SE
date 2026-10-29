@@ -18,7 +18,7 @@ Tick each box as you complete it. The workshop is **done** when all 10 are ticke
 - [x] **AC-01:** `docker build -t workshop-app .` exits with status 0 locally.
 - [x] **AC-02:** Dockerfile uses a multi-stage build (`grep -c '^FROM' Dockerfile` = 2).
 - [x] **AC-03:** `.dockerignore` excludes at least `node_modules`, `.git`, and `.env`.
-- [ ] **AC-04:** Dockerfile contains a `HEALTHCHECK` instruction.
+- [x] **AC-04:** Dockerfile contains a `HEALTHCHECK` instruction.
 - [ ] **AC-05:** `docker compose up -d` brings up two healthy containers within 60 seconds.
 - [ ] **AC-06:** `web` waits for `db` health (`docker compose config` shows `condition: service_healthy`).
 - [ ] **AC-07:** `.github/workflows/ci.yml` triggers on`push` to `main`.
